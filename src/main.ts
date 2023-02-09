@@ -19,13 +19,13 @@ async function run() {
     switch (pr.action) {
       case "opened":
         payload = {
-          comment: `Pull request [#${pr.number}](${pr.pull_request.html_url}) created by ${pr.sender.login}: ${title}`,
+          comment: `Pull request [#${pr.number}](${pr.pull_request.html_url}) created by ${pr.pull_request}: ${title}`,
         };
         break;
       case "closed":
         if (pr.pull_request.merged) {
           payload = {
-            statusId: 3,
+            // statusId: 3,
             comment: `Pull request [#${pr.number}](${pr.pull_request.html_url}) merged and closed by ${pr.sender.login}: ${title}`,
           };
         } else {
