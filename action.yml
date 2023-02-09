@@ -1,4 +1,4 @@
-name: 'Pull Request to Backlog'
+name: 'Pull Request to My Backlog'
 description: 'Add comment to Backlog issues when pull request opened or closed'
 author: Toshio Takiguchi
 inputs:
