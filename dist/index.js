@@ -1793,19 +1793,19 @@ function run() {
                     switch (pr.action) {
                         case "opened":
                             payload = {
-                                comment: "A Pull request [#" + pr.number + "](" + pr.pull_request.html_url + ") created by " + JSON.stringify(pr.pull_request) + ": " + title,
+                                comment: "Pull request [#" + pr.number + "](" + pr.pull_request.html_url + ") created by " + pr.sender.login + ": " + title +"/n From branch:" +pr.pull_request.head.ref+"/n To branch:"+pr.pull_request.base.ref,
                             };
                             break;
                         case "closed":
                             if (pr.pull_request.merged) {
                                 payload = {
-                                    statusId: 3,
-                                    comment: "A Pull request [#" + pr.number + "](" + pr.pull_request.html_url + ") merged and closed by " + JSON.stringify(pr.pull_request) + ": " + title,
+                                    //statusId: 3,
+                                    comment: "Pull request [#" + pr.number + "](" + pr.pull_request.html_url + ") merged and closed by " + pr.sender.login + ": " + title +"/n From branch:" +pr.pull_request.head.ref+"/n To branch:"+pr.pull_request.base.ref,
                                 };
                             }
                             else {
                                 payload = {
-                                    comment: "A Pull request [#" + pr.number + "](" + pr.pull_request.html_url + ") closed by " + JSON.stringify(pr.pull_request) + ": " + title,
+                                    comment: "Pull request [#" + pr.number + "](" + pr.pull_request.html_url + ") closed by " + pr.sender.login + ": " + title+"/n From branch:" +pr.pull_request.head.ref+"/n To branch:"+pr.pull_request.base.ref,
                                 };
                             }
                             break;
